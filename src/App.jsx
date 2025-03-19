@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       {/* Movie Lists Section */}
       <section className="movie-list-section bg-white flex flex-col items-center gap-20">
-        <h1 className="text-black text-[40px] font-medium">
+        <h1 className="text-black text-[40px] font-medium mt-10">
           Movie List Section
         </h1>
 
