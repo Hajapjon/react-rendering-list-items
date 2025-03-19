@@ -1,5 +1,6 @@
 const movies = [
-  {
+  { 
+    id: 1,
     title: "Avatar",
     year: "2009",
     runtime: "162 min",
@@ -10,7 +11,8 @@ const movies = [
     imdbRating: "7.9",
     imdbVotes: "890,617",
   },
-  {
+  { 
+    id: 2,
     title: "I Am Legend",
     year: "2007",
     runtime: "101 min",
@@ -22,6 +24,7 @@ const movies = [
     imdbVotes: "533,874",
   },
   {
+    id: 3,
     title: "300",
     year: "2006",
     runtime: "117 min",
@@ -33,6 +36,7 @@ const movies = [
     imdbVotes: "611,046",
   },
   {
+    id: 4,
     title: "The Avengers",
     year: "2012",
     runtime: "143 min",
@@ -44,6 +48,7 @@ const movies = [
     imdbVotes: "1,003,301",
   },
   {
+    id: 5,
     title: "The Wolf of Wall Street",
     year: "2013",
     runtime: "180 min",
@@ -55,6 +60,7 @@ const movies = [
     imdbVotes: "786,985",
   },
   {
+    id: 6,
     title: "Interstellar",
     year: "2014",
     runtime: "169 min",
@@ -66,6 +72,7 @@ const movies = [
     imdbVotes: "937,412",
   },
   {
+    id: 7,
     title: "Game of Thrones",
     year: "2011–",
     runtime: "56 min",
@@ -77,6 +84,7 @@ const movies = [
     imdbVotes: "1,046,830",
   },
   {
+    id: 8,
     title: "Vikings",
     year: "2013–",
     runtime: "44 min",
@@ -88,6 +96,7 @@ const movies = [
     imdbVotes: "198,041",
   },
   {
+    id: 9,
     title: "Gotham",
     year: "2014–",
     runtime: "42 min",
@@ -99,6 +108,7 @@ const movies = [
     imdbVotes: "133,375",
   },
   {
+    id: 10,
     title: "Power",
     year: "2014–",
     runtime: "50 min",
@@ -110,6 +120,7 @@ const movies = [
     imdbVotes: "14,770",
   },
   {
+    id: 11,
     title: "Narcos",
     year: "2015–",
     runtime: "49 min",
@@ -121,6 +132,7 @@ const movies = [
     imdbVotes: "118,680",
   },
   {
+    id: 12,
     title: "Breaking Bad",
     year: "2008–2013",
     runtime: "49 min",
@@ -132,6 +144,7 @@ const movies = [
     imdbVotes: "889,883",
   },
   {
+    id: 13,
     title: "Doctor Strange",
     year: "2016",
     runtime: "N/A",
@@ -143,6 +156,7 @@ const movies = [
     imdbVotes: "N/A",
   },
   {
+    id: 14,
     title: "Rogue One: A Star Wars Story",
     year: "2016",
     runtime: "N/A",
@@ -154,6 +168,7 @@ const movies = [
     imdbVotes: "N/A",
   },
   {
+    id: 15,
     title: "Assassin's Creed",
     year: "2016",
     runtime: "N/A",
@@ -165,6 +180,7 @@ const movies = [
     imdbVotes: "N/A",
   },
   {
+    id: 16,
     title: "Luke Cage",
     year: "2016–",
     runtime: "55 min",
@@ -177,4 +193,30 @@ const movies = [
   },
 ];
 
-export default movies;
+function Movie () {
+  return (
+    <ul className="font-kanit flex flex-col items-center gap-6 bg-gray-200">
+      <h1 className="text-center text-4xl font-bold text-black my-10">Movie List</h1>
+      {movies.map((movie) => (
+        <div key={movie.id} className="flex justify-start w-[500px] h-[250px] bg-white rounded-lg shadow-lg p-4 gap-4 " >
+          <img src={movie.image} alt={movie.title} className=" w-[102px] h-[100px] rounded-[10px]" />
+          <div className="flex flex-col gap-3">
+            <p className="font-medium">Title: {movie.title}</p>
+            <p>Year: {movie.year}</p>
+            <p>Runtime: {movie.runtime}</p>
+            <div className="flex items-center gap-2">
+              <span>Genres:</span>
+              {movie.genres.map((genre, index) => (
+                <p key={index} className="bg-[#EAAC99] px-2 py-1 rounded-lg">{genre}</p>
+              ))}
+            </div>
+            <p>IMDB Ratings: {movie.imdbRating}</p>
+            <p>IMDB Votes: {movie.imdbVotes}</p>
+          </div>
+        </div>
+      ))}
+    </ul>
+  )
+}
+
+export default Movie;
